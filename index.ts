@@ -72,7 +72,7 @@ export const createMap = async (map_key: Keypair, bytes: number) => {
 
   let base_dir = process.cwd() + '/txs/';
   let dir = `${base_dir}${map_key.publicKey.toBase58()}`;
-  fs.mkdirSync(`${dir}`, { mode: 0o755 });
+  fs.mkdirSync(`${dir}`, { mode: 0o755, recursive: true });
   fs.writeFileSync(`${dir}/key`, map_key.secretKey);
 
   return dir;
